@@ -1,0 +1,15 @@
+/BackEnd/PokemonBackEnd/obj
+/BackEnd/PokemonBackEnd/bin
+/Data/obj
+/Data/bin
+/FrontEnd/PokemonFrontEnd/obj
+/FrontEnd/PokemonFrontEnd/bin
+/FrontEnd/PokemonResources/obj
+/FrontEnd/PokemonResources/bin
+/Shared/Models/obj
+/Shared/Models/bin
+/Tests/BackEndTests/obj
+/Tests/BackEndTests/bin
+/Tests/FrontEndTests/obj
+/Tests/FrontEndTests/bin
+/.vs
