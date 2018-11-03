@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="PokemonFrontEnd.View.SearchResultsView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:controls="clr-namespace:PokemonFrontEnd.Controls"
+             Width="300">
+    <Border BorderBrush="Black" BorderThickness="2">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="20px" />
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="200px" />
+            <ColumnDefinition Width="40px" />
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="80px" />
+            <RowDefinition Height="30px" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <controls:Title TitleLabelContent="Search Results"  Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" Grid.ColumnSpan="2" VerticalAlignment="Bottom"/>
+        <controls:ListCharactersWithLink x:Name="ResultListControl" ShowPosition="False" ListCharacters="{Binding Path=ResultCharacters, Mode=TwoWay}" Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Margin="0,0,5,0" />
+   </Grid>
+    </Border>
+</UserControl>

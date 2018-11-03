@@ -1,0 +1,57 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28010.2048
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "BackEnd", "BackEnd", "{0BB7D14E-C15A-49E9-A531-A13DBC986BEC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonBackEnd", "BackEnd\PokemonBackEnd\PokemonBackEnd.csproj", "{2D2A87B9-9E6C-4BD3-9D2B-C0D8DDA36F4D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{D8FAC75E-8F02-4A28-A420-C5BA6AABE167}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PokemonDataStore", "Data\PokemonDataStore.csproj", "{8D7685DC-67CA-4E61-B047-09DBE831A05C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{A05E50C0-67CC-415C-81E6-7406DB9A4316}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Shared", "Shared", "{564E23A9-DDAA-45CE-9F3F-93FDB0271298}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Models", "Shared\Models\Models.csproj", "{2897F0C0-3648-4799-913C-8AEFD74AE461}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BackEndTests", "Tests\BackEndTests\BackEndTests.csproj", "{24B8CBB7-E3BF-40B5-91BB-5904FBAA9F40}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{2D2A87B9-9E6C-4BD3-9D2B-C0D8DDA36F4D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2D2A87B9-9E6C-4BD3-9D2B-C0D8DDA36F4D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2D2A87B9-9E6C-4BD3-9D2B-C0D8DDA36F4D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2D2A87B9-9E6C-4BD3-9D2B-C0D8DDA36F4D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8D7685DC-67CA-4E61-B047-09DBE831A05C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8D7685DC-67CA-4E61-B047-09DBE831A05C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8D7685DC-67CA-4E61-B047-09DBE831A05C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8D7685DC-67CA-4E61-B047-09DBE831A05C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2897F0C0-3648-4799-913C-8AEFD74AE461}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2897F0C0-3648-4799-913C-8AEFD74AE461}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2897F0C0-3648-4799-913C-8AEFD74AE461}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2897F0C0-3648-4799-913C-8AEFD74AE461}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24B8CBB7-E3BF-40B5-91BB-5904FBAA9F40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24B8CBB7-E3BF-40B5-91BB-5904FBAA9F40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24B8CBB7-E3BF-40B5-91BB-5904FBAA9F40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24B8CBB7-E3BF-40B5-91BB-5904FBAA9F40}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{2D2A87B9-9E6C-4BD3-9D2B-C0D8DDA36F4D} = {0BB7D14E-C15A-49E9-A531-A13DBC986BEC}
+		{8D7685DC-67CA-4E61-B047-09DBE831A05C} = {D8FAC75E-8F02-4A28-A420-C5BA6AABE167}
+		{2897F0C0-3648-4799-913C-8AEFD74AE461} = {564E23A9-DDAA-45CE-9F3F-93FDB0271298}
+		{24B8CBB7-E3BF-40B5-91BB-5904FBAA9F40} = {A05E50C0-67CC-415C-81E6-7406DB9A4316}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7E42BC1F-E9F4-4449-BFC0-79598391341A}
+	EndGlobalSection
+EndGlobal
