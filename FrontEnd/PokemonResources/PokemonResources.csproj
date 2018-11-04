@@ -108,5 +108,13 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="Images\abra.png" />
+    <Content Include="Images\feunard.png" />
+    <Content Include="Images\grolem.png" />
+    <Content Include="Images\racaillou.png" />
+    <Content Include="Images\sabelette.png" />
+    <Content Include="Images\tortank.jpg" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

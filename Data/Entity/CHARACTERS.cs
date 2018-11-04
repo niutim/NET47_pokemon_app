@@ -14,7 +14,26 @@ namespace PokemonDataStore.Entity
     
     public partial class CHARACTERS
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public CHARACTERS()
+        {
+            this.RANKING = new HashSet<RANKING>();
+            this.SPECIFICATIONS = new HashSet<SPECIFICATIONS>();
+            this.WEAKNESS = new HashSet<WEAKNESS>();
+            this.CLASSES = new HashSet<CLASSES>();
+        }
+    
         public long ID { get; set; }
         public string NAME { get; set; }
+        public string IMAGEFILE { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<RANKING> RANKING { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<SPECIFICATIONS> SPECIFICATIONS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WEAKNESS> WEAKNESS { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<CLASSES> CLASSES { get; set; }
     }
 }

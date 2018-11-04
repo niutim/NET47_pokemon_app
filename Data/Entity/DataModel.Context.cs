@@ -13,10 +13,10 @@ namespace PokemonDataStore.Entity
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class PoketMonstersDB : DbContext
+    public partial class PocketMonstersEntities : DbContext
     {
-        public PoketMonstersDB()
-            : base("name=PoketMonstersDB")
+        public PocketMonstersEntities()
+            : base("name=PocketMonstersEntities")
         {
         }
     
@@ -25,8 +25,10 @@ namespace PokemonDataStore.Entity
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<CHARACTER_CLASSES> CHARACTER_CLASSES { get; set; }
         public virtual DbSet<CHARACTERS> CHARACTERS { get; set; }
         public virtual DbSet<CLASSES> CLASSES { get; set; }
+        public virtual DbSet<RANKING> RANKING { get; set; }
+        public virtual DbSet<SPECIFICATIONS> SPECIFICATIONS { get; set; }
+        public virtual DbSet<WEAKNESS> WEAKNESS { get; set; }
     }
 }

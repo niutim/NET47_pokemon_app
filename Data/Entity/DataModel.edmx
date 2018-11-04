@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="databaseModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=Data\SQLite_DB\PocketMonsters.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="PocketMonstersModel.Store" Provider="System.Data.SQLite.EF6" ProviderManifestToken="Data Source=C:\DEV\test\Data\SQLiteDB\PocketMonsters.db" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <!--Erreurs détectées durant la génération :
 avertissement 6002: La table/vue 'main.CHARACTER_CLASSES' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="CHARACTER_CLASSES">
@@ -15,116 +15,378 @@ avertissement 6002: La table/vue 'main.CHARACTER_CLASSES' n'a pas de clé primai
           <Property Name="CHARACTERID" Type="integer" Nullable="false" />
           <Property Name="CLASSID" Type="integer" Nullable="false" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'main.CHARACTERS' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="CHARACTERS">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="NAME" />
           </Key>
-          <Property Name="ID" Type="integer" Nullable="false" />
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
+          <Property Name="IMAGEFILE" Type="nvarchar" MaxLength="2147483647" />
         </EntityType>
-        <!--Erreurs détectées durant la génération :
-avertissement 6002: La table/vue 'main.CLASSES' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
         <EntityType Name="CLASSES">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="NAME" />
           </Key>
-          <Property Name="ID" Type="integer" Nullable="false" />
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NAME" Type="nvarchar" MaxLength="2147483647" Nullable="false" />
         </EntityType>
+        <EntityType Name="RANKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CHARACTERID" Type="integer" Nullable="false" />
+          <Property Name="VOTES" Type="integer" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SPECIFICATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="integer" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CHARACTERID" Type="integer" Nullable="false" />
+          <Property Name="HEIGHT" Type="integer" Nullable="false" />
+          <Property Name="WEIGHT" Type="integer" Nullable="false" />
+          <Property Name="LIFEPOINTS" Type="integer" Nullable="false" />
+          <Property Name="ATTACK" Type="integer" Nullable="false" />
+          <Property Name="DEFENSE" Type="integer" Nullable="false" />
+          <Property Name="SPECIALATTACK" Type="integer" Nullable="false" />
+          <Property Name="SPECIALDEFENSE" Type="integer" Nullable="false" />
+          <Property Name="SPEED" Type="integer" Nullable="false" />
+        </EntityType>
         <!--Erreurs détectées durant la génération :
-avertissement 6035: La relation 'FK_CHARACTER_CLASSES_0_0' a des colonnes qui ne font pas partie de la clé de la table du côté primaire de la relation. La relation a été exclue.
-        <Association Name="FK_CHARACTER_CLASSES_0_0" />-->
-        <!--Erreurs détectées durant la génération :
-avertissement 6035: La relation 'FK_CHARACTER_CLASSES_1_0' a des colonnes qui ne font pas partie de la clé de la table du côté primaire de la relation. La relation a été exclue.
-        <Association Name="FK_CHARACTER_CLASSES_1_0" />-->
-        <EntityContainer Name="databaseModelStoreContainer">
+avertissement 6002: La table/vue 'main.WEAKNESS' n'a pas de clé primaire définie. La clé a été déduite et la définition a été créée en tant que table/vue en lecture seule.-->
+        <EntityType Name="WEAKNESS">
+          <Key>
+            <PropertyRef Name="CHARACTERID" />
+            <PropertyRef Name="CLASSID" />
+            <PropertyRef Name="RATIO" />
+          </Key>
+          <Property Name="CHARACTERID" Type="integer" Nullable="false" />
+          <Property Name="CLASSID" Type="integer" Nullable="false" />
+          <Property Name="RATIO" Type="decimal" Precision="53" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_CHARACTER_CLASSES_0_0">
+          <End Role="CLASSES" Type="Self.CLASSES" Multiplicity="1" />
+          <End Role="CHARACTER_CLASSES" Type="Self.CHARACTER_CLASSES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASSES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CHARACTER_CLASSES">
+              <PropertyRef Name="CLASSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_CHARACTER_CLASSES_1_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="CHARACTER_CLASSES" Type="Self.CHARACTER_CLASSES" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="CHARACTER_CLASSES">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_RANKING_0_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="RANKING" Type="Self.RANKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RANKING">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SPECIFICATIONS_0_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="SPECIFICATIONS" Type="Self.SPECIFICATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SPECIFICATIONS">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WEAKNESS_0_0">
+          <End Role="CLASSES" Type="Self.CLASSES" Multiplicity="1" />
+          <End Role="WEAKNESS" Type="Self.WEAKNESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASSES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WEAKNESS">
+              <PropertyRef Name="CLASSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WEAKNESS_1_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="WEAKNESS" Type="Self.WEAKNESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WEAKNESS">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PocketMonstersModelStoreContainer">
+          <EntitySet Name="CHARACTERS" EntityType="Self.CHARACTERS" store:Type="Tables" />
+          <EntitySet Name="CLASSES" EntityType="Self.CLASSES" store:Type="Tables" />
+          <EntitySet Name="RANKING" EntityType="Self.RANKING" store:Type="Tables" />
+          <EntitySet Name="SPECIFICATIONS" EntityType="Self.SPECIFICATIONS" store:Type="Tables" />
           <EntitySet Name="CHARACTER_CLASSES" EntityType="Self.CHARACTER_CLASSES" store:Type="Tables">
             <DefiningQuery>SELECT 
 [CHARACTER_CLASSES].[CHARACTERID] AS [CHARACTERID], 
 [CHARACTER_CLASSES].[CLASSID] AS [CLASSID]
 FROM [CHARACTER_CLASSES] AS [CHARACTER_CLASSES]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="CHARACTERS" EntityType="Self.CHARACTERS" store:Type="Tables">
+          <EntitySet Name="WEAKNESS" EntityType="Self.WEAKNESS" store:Type="Tables">
             <DefiningQuery>SELECT 
-[CHARACTERS].[ID] AS [ID], 
-[CHARACTERS].[NAME] AS [NAME]
-FROM [CHARACTERS] AS [CHARACTERS]</DefiningQuery>
+[WEAKNESS].[CHARACTERID] AS [CHARACTERID], 
+[WEAKNESS].[CLASSID] AS [CLASSID], 
+[WEAKNESS].[RATIO] AS [RATIO]
+FROM [WEAKNESS] AS [WEAKNESS]</DefiningQuery>
           </EntitySet>
-          <EntitySet Name="CLASSES" EntityType="Self.CLASSES" store:Type="Tables">
-            <DefiningQuery>SELECT 
-[CLASSES].[ID] AS [ID], 
-[CLASSES].[NAME] AS [NAME]
-FROM [CLASSES] AS [CLASSES]</DefiningQuery>
-          </EntitySet>
+          <AssociationSet Name="FK_CHARACTER_CLASSES_0_0" Association="Self.FK_CHARACTER_CLASSES_0_0">
+            <End Role="CLASSES" EntitySet="CLASSES" />
+            <End Role="CHARACTER_CLASSES" EntitySet="CHARACTER_CLASSES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_CHARACTER_CLASSES_1_0" Association="Self.FK_CHARACTER_CLASSES_1_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="CHARACTER_CLASSES" EntitySet="CHARACTER_CLASSES" />
+          </AssociationSet>
+          <AssociationSet Name="FK_RANKING_0_0" Association="Self.FK_RANKING_0_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="RANKING" EntitySet="RANKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SPECIFICATIONS_0_0" Association="Self.FK_SPECIFICATIONS_0_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="SPECIFICATIONS" EntitySet="SPECIFICATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WEAKNESS_0_0" Association="Self.FK_WEAKNESS_0_0">
+            <End Role="CLASSES" EntitySet="CLASSES" />
+            <End Role="WEAKNESS" EntitySet="WEAKNESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WEAKNESS_1_0" Association="Self.FK_WEAKNESS_1_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="WEAKNESS" EntitySet="WEAKNESS" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="databaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="CHARACTER_CLASSES">
-          <Key>
-            <PropertyRef Name="CHARACTERID" />
-            <PropertyRef Name="CLASSID" />
-          </Key>
-          <Property Name="CHARACTERID" Type="Int64" Nullable="false" />
-          <Property Name="CLASSID" Type="Int64" Nullable="false" />
-        </EntityType>
+      <Schema Namespace="PocketMonstersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="CHARACTERS">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="NAME" />
           </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="IMAGEFILE" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="RANKING" Relationship="Self.FK_RANKING_0_0" FromRole="CHARACTERS" ToRole="RANKING" />
+          <NavigationProperty Name="SPECIFICATIONS" Relationship="Self.FK_SPECIFICATIONS_0_0" FromRole="CHARACTERS" ToRole="SPECIFICATIONS" />
+          <NavigationProperty Name="WEAKNESS" Relationship="Self.FK_WEAKNESS_1_0" FromRole="CHARACTERS" ToRole="WEAKNESS" />
+          <NavigationProperty Name="CLASSES" Relationship="Self.CHARACTER_CLASSES" FromRole="CHARACTERS" ToRole="CLASSES" />
         </EntityType>
         <EntityType Name="CLASSES">
           <Key>
             <PropertyRef Name="ID" />
-            <PropertyRef Name="NAME" />
           </Key>
-          <Property Name="ID" Type="Int64" Nullable="false" />
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NAME" Type="String" MaxLength="2147483647" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="WEAKNESS" Relationship="Self.FK_WEAKNESS_0_0" FromRole="CLASSES" ToRole="WEAKNESS" />
+          <NavigationProperty Name="CHARACTERS" Relationship="Self.CHARACTER_CLASSES" FromRole="CLASSES" ToRole="CHARACTERS" />
         </EntityType>
-        <EntityContainer Name="PoketMonstersDB" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="CHARACTER_CLASSES" EntityType="Self.CHARACTER_CLASSES" />
+        <EntityType Name="RANKING">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CHARACTERID" Type="Int64" Nullable="false" />
+          <Property Name="VOTES" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CHARACTERS" Relationship="Self.FK_RANKING_0_0" FromRole="RANKING" ToRole="CHARACTERS" />
+        </EntityType>
+        <EntityType Name="SPECIFICATIONS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CHARACTERID" Type="Int64" Nullable="false" />
+          <Property Name="HEIGHT" Type="Int64" Nullable="false" />
+          <Property Name="WEIGHT" Type="Int64" Nullable="false" />
+          <Property Name="LIFEPOINTS" Type="Int64" Nullable="false" />
+          <Property Name="ATTACK" Type="Int64" Nullable="false" />
+          <Property Name="DEFENSE" Type="Int64" Nullable="false" />
+          <Property Name="SPECIALATTACK" Type="Int64" Nullable="false" />
+          <Property Name="SPECIALDEFENSE" Type="Int64" Nullable="false" />
+          <Property Name="SPEED" Type="Int64" Nullable="false" />
+          <NavigationProperty Name="CHARACTERS" Relationship="Self.FK_SPECIFICATIONS_0_0" FromRole="SPECIFICATIONS" ToRole="CHARACTERS" />
+        </EntityType>
+        <EntityType Name="WEAKNESS">
+          <Key>
+            <PropertyRef Name="CHARACTERID" />
+            <PropertyRef Name="CLASSID" />
+            <PropertyRef Name="RATIO" />
+          </Key>
+          <Property Name="CHARACTERID" Type="Int64" Nullable="false" />
+          <Property Name="CLASSID" Type="Int64" Nullable="false" />
+          <Property Name="RATIO" Type="Decimal" Precision="53" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CHARACTERS" Relationship="Self.FK_WEAKNESS_1_0" FromRole="WEAKNESS" ToRole="CHARACTERS" />
+          <NavigationProperty Name="CLASSES" Relationship="Self.FK_WEAKNESS_0_0" FromRole="WEAKNESS" ToRole="CLASSES" />
+        </EntityType>
+        <Association Name="FK_RANKING_0_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="RANKING" Type="Self.RANKING" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="RANKING">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_SPECIFICATIONS_0_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="SPECIFICATIONS" Type="Self.SPECIFICATIONS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="SPECIFICATIONS">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WEAKNESS_1_0">
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="1" />
+          <End Role="WEAKNESS" Type="Self.WEAKNESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CHARACTERS">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WEAKNESS">
+              <PropertyRef Name="CHARACTERID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WEAKNESS_0_0">
+          <End Role="CLASSES" Type="Self.CLASSES" Multiplicity="1" />
+          <End Role="WEAKNESS" Type="Self.WEAKNESS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLASSES">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="WEAKNESS">
+              <PropertyRef Name="CLASSID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CHARACTER_CLASSES">
+          <End Role="CLASSES" Type="Self.CLASSES" Multiplicity="*" />
+          <End Role="CHARACTERS" Type="Self.CHARACTERS" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PocketMonstersEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="CHARACTERS" EntityType="Self.CHARACTERS" />
           <EntitySet Name="CLASSES" EntityType="Self.CLASSES" />
+          <EntitySet Name="RANKING" EntityType="Self.RANKING" />
+          <EntitySet Name="SPECIFICATIONS" EntityType="Self.SPECIFICATIONS" />
+          <EntitySet Name="WEAKNESS" EntityType="Self.WEAKNESS" />
+          <AssociationSet Name="FK_RANKING_0_0" Association="Self.FK_RANKING_0_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="RANKING" EntitySet="RANKING" />
+          </AssociationSet>
+          <AssociationSet Name="FK_SPECIFICATIONS_0_0" Association="Self.FK_SPECIFICATIONS_0_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="SPECIFICATIONS" EntitySet="SPECIFICATIONS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WEAKNESS_1_0" Association="Self.FK_WEAKNESS_1_0">
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+            <End Role="WEAKNESS" EntitySet="WEAKNESS" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WEAKNESS_0_0" Association="Self.FK_WEAKNESS_0_0">
+            <End Role="CLASSES" EntitySet="CLASSES" />
+            <End Role="WEAKNESS" EntitySet="WEAKNESS" />
+          </AssociationSet>
+          <AssociationSet Name="CHARACTER_CLASSES" Association="Self.CHARACTER_CLASSES">
+            <End Role="CLASSES" EntitySet="CLASSES" />
+            <End Role="CHARACTERS" EntitySet="CHARACTERS" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="databaseModelStoreContainer" CdmEntityContainer="PoketMonstersDB">
-          <EntitySetMapping Name="CHARACTER_CLASSES">
-            <EntityTypeMapping TypeName="databaseModel.CHARACTER_CLASSES">
-              <MappingFragment StoreEntitySet="CHARACTER_CLASSES">
-                <ScalarProperty Name="CHARACTERID" ColumnName="CHARACTERID" />
-                <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
+        <EntityContainerMapping StorageEntityContainer="PocketMonstersModelStoreContainer" CdmEntityContainer="PocketMonstersEntities">
           <EntitySetMapping Name="CHARACTERS">
-            <EntityTypeMapping TypeName="databaseModel.CHARACTERS">
+            <EntityTypeMapping TypeName="PocketMonstersModel.CHARACTERS">
               <MappingFragment StoreEntitySet="CHARACTERS">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="IMAGEFILE" ColumnName="IMAGEFILE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="CLASSES">
-            <EntityTypeMapping TypeName="databaseModel.CLASSES">
+            <EntityTypeMapping TypeName="PocketMonstersModel.CLASSES">
               <MappingFragment StoreEntitySet="CLASSES">
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="NAME" ColumnName="NAME" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="RANKING">
+            <EntityTypeMapping TypeName="PocketMonstersModel.RANKING">
+              <MappingFragment StoreEntitySet="RANKING">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CHARACTERID" ColumnName="CHARACTERID" />
+                <ScalarProperty Name="VOTES" ColumnName="VOTES" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SPECIFICATIONS">
+            <EntityTypeMapping TypeName="PocketMonstersModel.SPECIFICATIONS">
+              <MappingFragment StoreEntitySet="SPECIFICATIONS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="CHARACTERID" ColumnName="CHARACTERID" />
+                <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="LIFEPOINTS" ColumnName="LIFEPOINTS" />
+                <ScalarProperty Name="ATTACK" ColumnName="ATTACK" />
+                <ScalarProperty Name="DEFENSE" ColumnName="DEFENSE" />
+                <ScalarProperty Name="SPECIALATTACK" ColumnName="SPECIALATTACK" />
+                <ScalarProperty Name="SPECIALDEFENSE" ColumnName="SPECIALDEFENSE" />
+                <ScalarProperty Name="SPEED" ColumnName="SPEED" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="WEAKNESS">
+            <EntityTypeMapping TypeName="PocketMonstersModel.WEAKNESS">
+              <MappingFragment StoreEntitySet="WEAKNESS">
+                <ScalarProperty Name="CHARACTERID" ColumnName="CHARACTERID" />
+                <ScalarProperty Name="CLASSID" ColumnName="CLASSID" />
+                <ScalarProperty Name="RATIO" ColumnName="RATIO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="CHARACTER_CLASSES" TypeName="PocketMonstersModel.CHARACTER_CLASSES" StoreEntitySet="CHARACTER_CLASSES">
+            <EndProperty Name="CLASSES">
+              <ScalarProperty Name="ID" ColumnName="CLASSID" />
+            </EndProperty>
+            <EndProperty Name="CHARACTERS">
+              <ScalarProperty Name="ID" ColumnName="CHARACTERID" />
+            </EndProperty>
+          </AssociationSetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

@@ -26,7 +26,7 @@
             <TextBlock Text="{Binding Path=CurrentCharacter.Rank, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Left" Grid.Row="3"/>
             <TextBlock Text="Vote counting" Grid.Column="1" TextAlignment="Left" Grid.Row="4" VerticalAlignment="Center"/>
             <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="4" Margin="0,0,0,0">
-                <TextBlock Text="{Binding Path=CurrentCharacter.Ranking.Votes, Mode=OneWay}" FontWeight="Black" TextAlignment="Left" VerticalAlignment="Center"/>
+                <TextBlock Text="{Binding Path=CurrentCharacter.Votes, Mode=OneWay}" FontWeight="Black" TextAlignment="Left" VerticalAlignment="Center"/>
                 <Button Content="Vote" HorizontalAlignment="Stretch" Margin="10,5,0,5" Height="20px" Command="{Binding VoteClickCommand}" x:Name="VoteButton" />
             </StackPanel>
         </Grid>

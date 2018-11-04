@@ -4,10 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="3e07bfb90eef4ed489c8a06fc36a6998" Name="Diagram1">
-        <EntityTypeShape EntityType="databaseModel.CHARACTER_CLASSES" Width="2.375" PointX="2.5" PointY="2.875" IsExpanded="true" />
-        <EntityTypeShape EntityType="databaseModel.CHARACTERS" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="databaseModel.CLASSES" Width="1.5" PointX="5.125" PointY="0.75" IsExpanded="true" />
+      <Diagram DiagramId="944401ab09f74e20bfd7de0719c4b967" Name="Diagram1">
+        <EntityTypeShape EntityType="PocketMonstersModel.CHARACTERS" Width="1.5" PointX="3" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PocketMonstersModel.CLASSES" Width="1.5" PointX="0.75" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PocketMonstersModel.RANKING" Width="1.5" PointX="5.25" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PocketMonstersModel.SPECIFICATIONS" Width="1.5" PointX="5.25" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PocketMonstersModel.WEAKNESS" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="PocketMonstersModel.FK_RANKING_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PocketMonstersModel.FK_SPECIFICATIONS_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PocketMonstersModel.FK_WEAKNESS_1_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PocketMonstersModel.FK_WEAKNESS_0_0" ManuallyRouted="false" />
+        <AssociationConnector Association="PocketMonstersModel.CHARACTER_CLASSES" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

@@ -12,9 +12,13 @@ namespace PokemonDataStore.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class CHARACTER_CLASSES
+    public partial class WEAKNESS
     {
         public long CHARACTERID { get; set; }
         public long CLASSID { get; set; }
+        public decimal RATIO { get; set; }
+    
+        public virtual CHARACTERS CHARACTERS { get; set; }
+        public virtual CLASSES CLASSES { get; set; }
     }
 }

@@ -93,9 +93,9 @@ namespace BackEndTests.UnitTestsController
 
             Assert.AreEqual(topTenCharactersSent.Length, 10);
 
-            var maxVotes = topTenCharactersSent.Max<Character>(chr => chr.Ranking.Votes);
+            var maxVotes = topTenCharactersSent.Max<Character>(chr => chr.Votes);
 
-            Assert.AreEqual(topTenCharactersSent[0].Ranking.Votes, maxVotes);
+            Assert.AreEqual(topTenCharactersSent[0].Votes, maxVotes);
 
         }
 
@@ -122,7 +122,7 @@ namespace BackEndTests.UnitTestsController
 			Assert.IsNotNull(allCharactersResult);
 			Assert.IsTrue(allCharactersResult.Length>1);
 
-			long currentVotesCount = allCharactersResult[0].Ranking.Votes;
+			long currentVotesCount = allCharactersResult[0].Votes;
 
 			var result = controller.GetVoteForCharacter(allCharactersResult[0].Id) as System.Web.Http.Results.OkNegotiatedContentResult<Character>;
 			Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
@@ -130,7 +130,7 @@ namespace BackEndTests.UnitTestsController
 			Character newVoteCharacterSent = result.Content as Character;
 
 			Assert.IsNotNull(newVoteCharacterSent);
-			Assert.AreEqual(newVoteCharacterSent.Ranking.Votes, currentVotesCount+1);
+			Assert.AreEqual(newVoteCharacterSent.Votes, currentVotesCount+1);
 
 		}
 
