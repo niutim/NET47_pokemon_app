@@ -1,4 +1,4 @@
-# test
+# Pokemon test application
 
 For detailed informations, read "Project_Test_TechnicalManual.docx" at the root of the repository (in French, no english traduction).
 
