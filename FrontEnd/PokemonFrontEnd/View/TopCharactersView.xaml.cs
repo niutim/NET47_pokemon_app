@@ -17,12 +17,6 @@ namespace PokemonFrontEnd.View
             this.Loaded += TopCharactersView_Loaded;
 		}
 
-        private void TopCharactersView_Loaded(object sender, System.Windows.RoutedEventArgs e)
-        {
-            this.Loaded -= TopCharactersView_Loaded;
-            this.topCountComboBox.SelectedValue = 5;
-        }
-
         public void populateComboBox()
 		{
 			topCountComboBox.DisplayMemberPath = "Text";
@@ -35,5 +29,17 @@ namespace PokemonFrontEnd.View
 
 			topCountComboBox.ItemsSource = items;
 		}
-	}
+
+        public void Refresh()
+        {
+            TopCharactersViewModel viewModel = this.DataContext as TopCharactersViewModel;
+            if(viewModel!=null) viewModel.Refresh();
+        }
+
+        private void TopCharactersView_Loaded(object sender, System.Windows.RoutedEventArgs e)
+        {
+            this.Loaded -= TopCharactersView_Loaded;
+            this.topCountComboBox.SelectedValue = 5;
+        }
+    }
 }

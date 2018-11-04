@@ -25,6 +25,11 @@ namespace PokemonFrontEnd.ViewModel
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        public void Refresh()
+        {
+            TopCountChangedAsync();
+        }
+
 		protected void OnPropertyChanged(string name)
 		{
 			PropertyChangedEventHandler handler = PropertyChanged;

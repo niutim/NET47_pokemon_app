@@ -40,6 +40,7 @@ namespace PokemonFrontEnd.ViewModel
                     MainWindow main = Application.Current.MainWindow as PokemonFrontEnd.MainWindow;
                     if (main != null)
                     {
+                        main.TopCharactersView.Refresh();
                         main.DisplayCharacterInfo(character);
                     }
                     Mouse.OverrideCursor = Cursors.Arrow;

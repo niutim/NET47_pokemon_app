@@ -8,7 +8,7 @@ namespace PokemonBackEnd.Controllers
     public class CharactersController : ApiController
     {
 
-		private Character[] characters =
+		private static Character[] characters =
 		{
 			new Character(1, "Pikachu", 1, 100, new string[] { "Electricity" }, "pikachu.png", 
                           new Specifications(40,6,35,55,40,50,50,90), 
@@ -95,12 +95,19 @@ namespace PokemonBackEnd.Controllers
             if (listCharacters.Count != 0) characters = listCharacters.ToArray();
 
             var character = characters.First<Character>(c => c.Id == charId);
-			if (character == null)
-			{
-				return NotFound();
-			}
-			else
-				character.Votes++;
+            if (character == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                character.Votes++;
+                listCharacters = characters.ToList<Character>().OrderByDescending(c => c.Votes).ToList<Character>();
+                for (int cpt=0; cpt< listCharacters.Count;cpt++)
+                {
+                    listCharacters[cpt].Rank = cpt + 1;
+                }
+            }
 			return Ok(character);
 		}
 

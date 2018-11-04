@@ -18,7 +18,7 @@
                               long specialDefense, long speed) {
             this.Height = height;
             this.Weight = weight;
-            this.LifePoints = LifePoints;
+            this.LifePoints = lifePoints;
             this.Attack = attack;
             this.Defense = defense;
             this.SpecialAttack = specialAttack;

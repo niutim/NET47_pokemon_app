@@ -21,7 +21,7 @@
 
         <view:SearchView Grid.Column="0" Grid.Row="0" Margin="5,5,5,5" />
         <view:SearchResultsView x:Name="SearchResultsView" Grid.Column="0" Grid.Row="1" Margin="5,5,5,5" />
-        <view:TopCharactersView Grid.Column="0" Grid.Row="2" Margin="5,5,5,5" />
+        <view:TopCharactersView x:Name="TopCharactersView" Grid.Column="0" Grid.Row="2" Margin="5,5,5,5" />
 
         <Grid x:Name="MainContentArea" Grid.Column="2" Grid.Row="0" Grid.RowSpan="3">
             <Grid.ColumnDefinitions>

@@ -27,7 +27,7 @@ namespace BackEndTests.UnitTestsController
             Character character = new Character() { Id = 1, Name = "Pikachu" };
 
             var result = controller.GetCharacterByName("Pikachu") as System.Web.Http.Results.OkNegotiatedContentResult<Character>;
-            Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+            Assert.IsNotNull(result, "Controller response is null.");
             Character characterSent = result.Content as Character;
 
             Assert.AreEqual(characterSent.Id, character.Id);
@@ -42,7 +42,7 @@ namespace BackEndTests.UnitTestsController
             Character character = new Character() { Id = 2, Name = "Salameche" };
 
             var result = controller.GetCharacterByName("Salameche") as System.Web.Http.Results.OkNegotiatedContentResult<Character>;
-            Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+            Assert.IsNotNull(result, "Controller response is null.");
 
             Character characterSent = result.Content as Character;
 
@@ -58,7 +58,7 @@ namespace BackEndTests.UnitTestsController
             Character character = new Character() { Id = 1, Name = "Pikachu" };
 
             var result = controller.GetCharactersContainingString("P") as System.Web.Http.Results.OkNegotiatedContentResult<Character[]>;
-            Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+            Assert.IsNotNull(result, "Controller response is null.");
 
             Character[] characterSent = result.Content as Character[];
             Assert.IsNotNull(characterSent);
@@ -72,7 +72,7 @@ namespace BackEndTests.UnitTestsController
             var controller = new CharactersController();
 
             var result = controller.GetCharactersContainingString("1") as System.Web.Http.Results.OkNegotiatedContentResult<Character[]>;
-            Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+            Assert.IsNotNull(result, "Controller response is null.");
 
             Character[] characterSent = result.Content as Character[];
             Assert.IsNotNull(characterSent);
@@ -87,7 +87,7 @@ namespace BackEndTests.UnitTestsController
             var controller = new CharactersController();
             var result = controller.GetTopXXCharacters(10) as System.Web.Http.Results.OkNegotiatedContentResult<Character[]>;
 
-            Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+            Assert.IsNotNull(result, "Controller response is null.");
 
             Character[] topTenCharactersSent = result.Content as Character[];
 
@@ -105,7 +105,7 @@ namespace BackEndTests.UnitTestsController
             var controller = new CharactersController();
             var result = controller.GetTopXXCharacters(3) as System.Web.Http.Results.OkNegotiatedContentResult<Character[]>;
 
-            Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+            Assert.IsNotNull(result, "Controller response is null.");
 
             Character[] topTenCharactersSent = result.Content as Character[];
 
@@ -125,7 +125,7 @@ namespace BackEndTests.UnitTestsController
 			long currentVotesCount = allCharactersResult[0].Votes;
 
 			var result = controller.GetVoteForCharacter(allCharactersResult[0].Id) as System.Web.Http.Results.OkNegotiatedContentResult<Character>;
-			Assert.IsNotNull(result, "L'objet en retour du controller n'est pas celui attendu.");
+			Assert.IsNotNull(result, "Controller response is null.");
 
 			Character newVoteCharacterSent = result.Content as Character;
 
