@@ -8,7 +8,7 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="0" TextWrapping="Wrap" Text="Welcome on Pokemon Test Application" VerticalAlignment="Bottom" TextAlignment="Center" FontSize="48"/>
-        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="(To Start, use Search control or select one character in Top ranking)" VerticalAlignment="Top" TextAlignment="Center" FontSize="20"/>
+        <TextBlock HorizontalAlignment="Center" Margin="0,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="(To start, use Search control or select one character in Top ranking)" VerticalAlignment="Top" TextAlignment="Center" FontSize="20"/>
 
     </Grid>
 </UserControl>

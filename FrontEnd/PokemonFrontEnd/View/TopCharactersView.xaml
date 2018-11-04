@@ -19,9 +19,9 @@
         </Grid.RowDefinitions>
 
         <controls:Title TitleLabelContent="Top Ranking"  Grid.Column="1" Grid.Row="0" Margin="0,0,0,0" Grid.ColumnSpan="3" VerticalAlignment="Bottom"/>
-        <Label Content="Count" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Margin="0,0,5,0" />
+        <Label Content="Size limitation" HorizontalAlignment="Right" Grid.Column="1" Grid.Row="1" Margin="0,0,5,0" VerticalAlignment="Bottom" />
         <ComboBox HorizontalAlignment="Left" SelectedValue="{Binding Path=CountValue, Mode=TwoWay}" Margin="0,5,0,5" Grid.Column="2" Grid.Row="1" x:Name="topCountComboBox" Height="20px" />
-        <controls:ListCharactersWithLink x:Name="ListControl" ShowPosition="True" ListCharacters="{Binding Path=ListCharacters, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="0,0,5,0" />
+        <controls:ListCharactersWithLink x:Name="ListControl" ShowPosition="True" ListCharacters="{Binding Path=ListCharacters, Mode=TwoWay}" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" Margin="0,0,5,0" VerticalAlignment="Stretch" />
     </Grid>
     </Border>
 </UserControl>
