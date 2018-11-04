@@ -109,12 +109,24 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Images\abra.png" />
-    <Content Include="Images\feunard.png" />
-    <Content Include="Images\grolem.png" />
-    <Content Include="Images\racaillou.png" />
-    <Content Include="Images\sabelette.png" />
-    <Content Include="Images\tortank.jpg" />
+    <Resource Include="Images\abra.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\feunard.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\grolem.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\racaillou.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\sabelette.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\tortank.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

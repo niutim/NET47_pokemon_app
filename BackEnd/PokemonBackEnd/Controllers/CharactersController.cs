@@ -10,7 +10,9 @@ namespace PokemonBackEnd.Controllers
 
 		private Character[] characters =
 		{
-			new Character(1, "Pikachu", 1, 100, new string[] { "Electricity" }, "pikachu.png", new Specifications(), new Weakness[] { new Weakness() } ),
+			new Character(1, "Pikachu", 1, 100, new string[] { "Electricity" }, "pikachu.png", 
+                          new Specifications(40,6,35,55,40,50,50,90), 
+                          new Weakness[] { new Weakness("Electricity",0.5m), new Weakness("Earth",2), new Weakness("Fly", 0.5m), new Weakness("Steel", 0.5m) } ),
             new Character(2, "Salameche", 2, 99, new string[] { "Fire" }, "salameche.png", new Specifications(), new Weakness[] { new Weakness() } ),
 			new Character(3, "BulleBizarre", 5, 80, new string[] { "Earth" }, "bulbasaur.jpg", new Specifications(), new Weakness[] { new Weakness() } ),
             new Character(4, "Florizarre", 6, 33, new string[] { "Water" }, "venusaur.png", new Specifications(), new Weakness[] { new Weakness() } ),

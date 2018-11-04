@@ -66,6 +66,12 @@
     <Compile Include="Controls\ListCharactersWithLink.xaml.cs">
       <DependentUpon>ListCharactersWithLink.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ListClasses.xaml.cs">
+      <DependentUpon>ListClasses.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controls\ListWeaknesses.xaml.cs">
+      <DependentUpon>ListWeaknesses.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Title.xaml.cs">
       <DependentUpon>Title.xaml</DependentUpon>
     </Compile>
@@ -91,6 +97,14 @@
       <DependentUpon>WelcomePageView.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ListCharactersWithLink.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListClasses.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Controls\ListWeaknesses.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

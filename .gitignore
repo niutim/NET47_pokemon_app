@@ -13,3 +13,5 @@
 /Tests/FrontEndTests/obj
 /Tests/FrontEndTests/bin
 /.vs
+/Tests/DataStoreTests/DataStoreTests/obj
+/Tests/DataStoreTests/DataStoreTests/bin

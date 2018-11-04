@@ -28,8 +28,12 @@ namespace PokemonFrontEnd
 
         private void IconExit_MouseLeftButtonDown(object sender, System.Windows.Input.MouseButtonEventArgs e)
         {
-            IconExit.MouseLeftButtonDown -= IconExit_MouseLeftButtonDown;
-            Application.Current.Shutdown();
+            MessageBoxResult result = MessageBox.Show("Do you want to quit ?", "Quit", MessageBoxButton.YesNo, MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                IconExit.MouseLeftButtonDown -= IconExit_MouseLeftButtonDown;
+                Application.Current.Shutdown();
+            }
         }
 
         internal void DisplaySearchResults(string searchedText) => SearchResultsView.Display(searchedText);

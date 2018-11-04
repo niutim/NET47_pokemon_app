@@ -18,7 +18,7 @@ namespace PokemonFrontEnd.Services
             serviceURL = ConfigurationManager.AppSettings["server"] + "api/characters/";
         }
 
-        public static async Task<Character> GetCharacterByIdAsync(int id)
+        public static async Task<Character> GetCharacterByIdAsync(long id)
         {
             Character character = null;
             HttpResponseMessage response = await httpClient.GetAsync(serviceURL + "id/" + id);
@@ -67,7 +67,7 @@ namespace PokemonFrontEnd.Services
             return topCharacters;
         }
 
-        public static async Task<Character> VoteForCharacterAsync(int id)
+        public static async Task<Character> VoteForCharacterAsync(long id)
 		{
 
 			Character character = null;

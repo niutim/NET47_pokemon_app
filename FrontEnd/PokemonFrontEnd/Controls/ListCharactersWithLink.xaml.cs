@@ -90,12 +90,12 @@ namespace PokemonFrontEnd.Controls
         {
             FrameworkElement frameworkElement = sender as FrameworkElement;
             if (frameworkElement == null) return;
-            int? id = frameworkElement.Tag as int?;
+            long? id = frameworkElement.Tag as long?;
             if(id.HasValue) DisplayElementAsync(id.Value);
 
         }
 
-        private static async void DisplayElementAsync(int id)
+        private static async void DisplayElementAsync(long id)
         {
             Mouse.OverrideCursor = Cursors.Wait;
             Task<Character> task = CharacterService.GetCharacterByIdAsync(id);
