@@ -5,15 +5,100 @@ using PokemonFrontEnd.Services;
 
 namespace FrontEndTests
 {
+    /// <summary>
+    /// Tests unitaires sur FrontEnd
+    /// </summary>
+    /// <remarks> Pas de mock utilisé, a lancer lorsque le serveur back est demarre</remarks>
     [TestClass]
     public class UnitTestCharacterService
     {
         [TestMethod]
-        public void GetCharacterTask()
+        public void GetCharacterSalamecheTaskAsyncTest()
         {
-            Task<Character> character = CharacterService.GetCharacterByNameAsync("Salameche");
-            Assert.IsNotNull(character);
-
+            Task<Character> task = CharacterService.GetCharacterByNameAsync("Salameche");
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character character = task.Result as Character;
+                Assert.IsNotNull(character);
+                Assert.IsTrue(character.Name.ToLower().Equals("salameche"));
+            }
         }
+
+        [TestMethod]
+        public void GetCharacterPikachuByIdTaskAsyncTest()
+        {
+            Task<Character> task = CharacterService.GetCharacterByIdAsync(1);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character character = task.Result as Character;
+                Assert.IsNotNull(character);
+                Assert.IsTrue(character.Name.ToLower().Equals("pikachu"));
+            }
+        }
+
+        [TestMethod]
+        public void GetTop3CharactersAsyncTest()
+        {
+            Task<Character[]> task = CharacterService.GetTopXXCharacterAsync(3);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character[] characters = task.Result as Character[];
+                Assert.IsNotNull(characters);
+                Assert.IsTrue(characters.Length==3);
+            }
+        }
+
+        [TestMethod]
+        public void GetTopCharactersOrderAsyncTest()
+        {
+            Task<Character[]> task = CharacterService.GetTopXXCharacterAsync(10);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character[] characters = task.Result as Character[];
+                Assert.IsNotNull(characters);
+                Assert.IsTrue(characters[0].Rank == 1);
+            }
+        }
+
+        [TestMethod]
+        public void GetCharactersContainingPLetterAsyncTest()
+        {
+            Task<Character[]> task = CharacterService.GetCharactersContainingStringAsync("p");
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character[] characters = task.Result as Character[];
+                Assert.IsNotNull(characters);
+                Assert.IsTrue(characters.Length>0);
+            }
+        }
+
+        [TestMethod]
+        public void GetVoteCharacterResultAsyncTest()
+        {
+            long votes = 0;
+            Task<Character> task = CharacterService.GetCharacterByIdAsync(1);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character character = task.Result as Character;
+                Assert.IsNotNull(character);
+                votes = character.Votes;
+            }
+
+            task = CharacterService.VoteForCharacterAsync(1);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Character character = task.Result as Character;
+                Assert.IsNotNull(character);
+                Assert.IsTrue(character.Votes==votes+1);
+            }
+        }
+
     }
 }
