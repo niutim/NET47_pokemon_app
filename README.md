@@ -8,7 +8,7 @@ Pre requisites :
 - Directory "packages" in all projects that require it (NuGet Dependencies).
 
 Known issues :
-- Data mapping between EF6 ans SQLite is not working properly until now (2018-11-04), you should clone sources in C:\DEV\ until it'll be fixed.
+- Data mapping between EF6 and SQLite DB is not working properly until now (2018-11-04), you should clone sources in C:\DEV\ until it'll be fixed.
 
 This test project includes 2 parts in C#, using sln files you'll have to use Visual Studio 2017 (I used community edition) and .NET Framework 4.7.1 / 4.7.2 Developer Pack
 
