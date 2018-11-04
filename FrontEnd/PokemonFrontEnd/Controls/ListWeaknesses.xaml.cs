@@ -35,17 +35,17 @@ namespace PokemonFrontEnd.Controls
             Weakness[] ListWeaknessesObject = (Weakness[])e.NewValue;
             if (ListWeaknessesObject != null)
             {
-                ListWeaknessesObject.ToList().ForEach(className => AddLinkedElement(control, className));
+                ListWeaknessesObject.ToList().ForEach(className => AddWeakness(control, className));
             }
         }
 
-        private static void AddLinkedElement(ListWeaknesses control, Weakness weakness)
+        private static void AddWeakness(ListWeaknesses control, Weakness weakness)
         {
 
             TextBlock textBlockWeakness = new TextBlock();
             textBlockWeakness.Margin = new Thickness(10, 5, 0, 0);
             textBlockWeakness.FontWeight = FontWeights.Black;
-            textBlockWeakness.Text = String.Format("{0} ({1})", weakness.ClassName, weakness.Ratio);
+            textBlockWeakness.Text = String.Format("{0} (x{1})", weakness.ClassName, weakness.Ratio);
             control.weaknessesListStackPanel.Children.Add(textBlockWeakness);
         }
 

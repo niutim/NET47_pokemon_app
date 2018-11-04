@@ -49,15 +49,15 @@
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.SpecialAttack, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="6"/>
             <TextBlock Text="Special Defense" Grid.Column="3" TextAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Margin="40,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.SpecialDefense, Mode=OneWay}" FontWeight="Black" Grid.Column="4" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="6"/>
-            <TextBlock Text="Height (cm)" Grid.Column="1" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="Height (centimeter)" Grid.Column="1" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="10,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Height, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="7"/>
-            <TextBlock Text="Weight (kg)" Grid.Column="3" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="40,0,0,0" />
+            <TextBlock Text="Weight (gramme)" Grid.Column="3" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="40,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Weight, Mode=OneWay}" FontWeight="Black" Grid.Column="4" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="7"/>
 
             <TextBlock Text="Classes" TextAlignment="Left" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="9" Margin="5,0,0,0"/>
             <TextBlock Text="Character type(s)" Grid.Column="1" TextAlignment="Left" Grid.Row="10" VerticalAlignment="Center" Margin="10,0,0,0" />
             <controls:ListClasses ListClassesName="{Binding Path=CurrentCharacter.Classes, Mode=TwoWay}" HorizontalAlignment="Left" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="10" />
-            <TextBlock Text="Weakness type(s)" Grid.Column="1" TextAlignment="Left" Grid.Row="11" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="Weakness" Grid.Column="1" TextAlignment="Left" Grid.Row="11" VerticalAlignment="Center" Margin="10,0,0,0" />
             <controls:ListWeaknesses ListWeaknessesObject="{Binding Path=CurrentCharacter.Weaknesses, Mode=TwoWay}" HorizontalAlignment="Left" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="11" />
 
             <TextBlock Text="Vote" TextAlignment="Left" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="13" Margin="5,0,0,0"/>

@@ -33,11 +33,11 @@ namespace PokemonFrontEnd.Controls
             string[] listClasses = (string[])e.NewValue;
             if (listClasses != null)
             {
-                listClasses.ToList().ForEach(className => AddLinkedElement(control, className));
+                listClasses.ToList().ForEach(className => AddClass(control, className));
             }
         }
 
-        private static void AddLinkedElement(ListClasses control, string classname)
+        private static void AddClass(ListClasses control, string classname)
         {
 
             TextBlock textBlockClassName = new TextBlock();
