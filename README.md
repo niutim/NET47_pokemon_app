@@ -10,7 +10,7 @@ Pre requisites :
 
 Known issues :
 
-- Data mapping between EF6 and SQLite DB is not working properly until now (2018-11-04), you should clone sources in C:\DEV\ until it'll be fixed.
+- Data mapping between EF6 and SQLite DB is not working properly until now (2018-11-04), you should clone sources in C:\DEV\ until it'll be fixed (for Data unit tests only). Even if you clone sources in other location, you should be able to build and launch BackEnd and FrontEnd projects.
 
 Description :
 
