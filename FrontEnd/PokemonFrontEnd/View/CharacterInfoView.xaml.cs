@@ -42,8 +42,8 @@ namespace PokemonFrontEnd.View
                 }
             } catch(Exception ex)
             {
-                Console.WriteLine("Une erreur s'est produite au chargement de l'image.");
-                Console.WriteLine(ex.Message);
+                System.Diagnostics.Debug.WriteLine("Une erreur s'est produite au chargement de l'image.");
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
         }
     }
