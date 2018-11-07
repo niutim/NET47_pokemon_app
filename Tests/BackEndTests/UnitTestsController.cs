@@ -2,6 +2,7 @@
 using PokemonShared.Models;
 using PokemonBackEnd.Controllers;
 using System.Linq;
+using System.Web.Script.Serialization;
 
 namespace BackEndTests.UnitTestsController
 {
@@ -117,7 +118,10 @@ namespace BackEndTests.UnitTestsController
         public void GetAverageSpecificationsOneClassTest()
         {
             var controller = new CharactersController();
-            var result = controller.GetAverageSpecifications(new string[] { "Earth" }) as System.Web.Http.Results.OkNegotiatedContentResult<Specifications>;
+
+            string classesName = new JavaScriptSerializer().Serialize(new string[] { "Earth" });
+
+            var result = controller.GetAverageSpecifications(classesName) as System.Web.Http.Results.OkNegotiatedContentResult<Specifications>;
 
             Assert.IsNotNull(result, "Controller response is null.");
 
@@ -131,7 +135,10 @@ namespace BackEndTests.UnitTestsController
         public void GetAverageSpecificationsTwoClassesTest()
         {
             var controller = new CharactersController();
-            var result = controller.GetAverageSpecifications(new string[] { "Rock", "Fly" }) as System.Web.Http.Results.OkNegotiatedContentResult<Specifications>;
+
+            string classesName = new JavaScriptSerializer().Serialize(new string[] { "Rock", "Fly" });
+
+            var result = controller.GetAverageSpecifications(classesName) as System.Web.Http.Results.OkNegotiatedContentResult<Specifications>;
 
             Assert.IsNotNull(result, "Controller response is null.");
 
