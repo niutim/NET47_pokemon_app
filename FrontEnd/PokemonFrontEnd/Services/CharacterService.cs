@@ -1,6 +1,8 @@
 ﻿using PokemonShared.Models;
+using System;
 using System.Configuration;
 using System.Net.Http;
+using System.Text;
 using System.Threading.Tasks;
 using System.Web.Script.Serialization;
 
@@ -65,6 +67,21 @@ namespace PokemonFrontEnd.Services
                 topCharacters = new JavaScriptSerializer().Deserialize<Character[]>(resultString);
             }
             return topCharacters;
+        }
+
+        public static async Task<Specifications> GetAverageSpecificationsAsync(string[] classesName)
+        {
+
+            Specifications specifications = null;
+            string str = new JavaScriptSerializer().Serialize(classesName);
+
+            HttpResponseMessage response = await httpClient.GetAsync(serviceURL + "average/"+ str);
+            if (response.IsSuccessStatusCode)
+            {
+                string resultString = await response.Content.ReadAsStringAsync();
+                specifications = new JavaScriptSerializer().Deserialize<Specifications>(resultString);
+            }
+            return specifications;
         }
 
         public static async Task<Character> VoteForCharacterAsync(long id)

@@ -78,6 +78,34 @@ namespace FrontEndTests
         }
 
         [TestMethod]
+        public void GetAverageSpecificationsOneClassResultAsyncTest()
+        {
+            string[] classesName = { "Earth" };
+            Task<Specifications> task = CharacterService.GetAverageSpecificationsAsync(classesName);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Specifications specifications = task.Result as Specifications;
+                Assert.IsNotNull(specifications);
+                Assert.IsTrue(specifications.LifePoints>0);
+            }
+        }
+
+        [TestMethod]
+        public void GetAverageSpecificationsTwoClassesResultAsyncTest()
+        {
+            string[] classesName = { "Earth", "Rock" };
+            Task<Specifications> task = CharacterService.GetAverageSpecificationsAsync(classesName);
+            task.Wait();
+            if (task.IsCompleted)
+            {
+                Specifications specifications = task.Result as Specifications;
+                Assert.IsNotNull(specifications);
+                Assert.IsTrue(specifications.LifePoints > 0);
+            }
+        }
+
+        [TestMethod]
         public void GetVoteCharacterResultAsyncTest()
         {
             long votes = 0;

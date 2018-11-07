@@ -35,7 +35,12 @@ namespace PokemonBackEnd
                 routeTemplate: "api/{controller}/top/{count}"
 			);
 
-			config.Routes.MapHttpRoute(
+            config.Routes.MapHttpRoute(
+                name: "GetAverageSpecifications",
+                routeTemplate: "api/{controller}/average/{classesName}"
+            );
+
+            config.Routes.MapHttpRoute(
 				name: "GetVoteForCharacter",
 				routeTemplate: "api/{controller}/vote/{charId}"
 			);

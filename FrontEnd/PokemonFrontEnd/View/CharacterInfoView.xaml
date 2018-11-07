@@ -19,6 +19,12 @@
                 <RowDefinition Height="25px"/>
                 <RowDefinition Height="25px"/>
                 <RowDefinition Height="25px"/>
+                <RowDefinition Height="25px"/>
+                <RowDefinition Height="25px"/>
+                <RowDefinition Height="20px"/>
+                <RowDefinition Height="25px"/>
+                <RowDefinition Height="25px"/>
+                <RowDefinition Height="25px"/>
                 <RowDefinition Height="20px"/>
                 <RowDefinition Height="25px"/>
                 <RowDefinition Height="30px"/>
@@ -27,9 +33,11 @@
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="60px"/>
-                <ColumnDefinition Width="150px"/>
+                <ColumnDefinition Width="140px"/>
+                <ColumnDefinition Width="100px"/>
                 <ColumnDefinition Width="0.5*"/>
-                <ColumnDefinition Width="150px"/>
+                <ColumnDefinition Width="120px"/>
+                <ColumnDefinition Width="100px"/>
                 <ColumnDefinition Width="0.5*"/>
                 <ColumnDefinition Width="60px"/>
             </Grid.ColumnDefinitions>
@@ -37,35 +45,67 @@
             <TextBlock Text="{Binding Path=CurrentCharacter.Name, Mode=OneWay}" FontWeight="Black" FontSize="40" FontStretch="Expanded" Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="1" />
 
             <TextBlock Text="Specifications" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" Margin="5,0,0,0"/>
+            
             <TextBlock Text="Life points" Grid.Column="1" TextAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Margin="10,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.LifePoints, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="4"/>
-            <TextBlock Text="Speed" Grid.Column="3" TextAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Margin="40,0,0,0" />
-            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Speed, Mode=OneWay}" FontWeight="Black" Grid.Column="4" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="4"/>
+            <TextBlock Text="Speed" Grid.Column="4" TextAlignment="Left" Grid.Row="4" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Speed, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="4"/>
+            
             <TextBlock Text="Attack" Grid.Column="1" TextAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="10,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Attack, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="5"/>
-            <TextBlock Text="Defense" Grid.Column="3" TextAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="40,0,0,0" />
-            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Defense, Mode=OneWay}" FontWeight="Black" Grid.Column="4" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="5"/>
+            <TextBlock Text="Defense" Grid.Column="4" TextAlignment="Left" Grid.Row="5" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Defense, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="5"/>
+            
             <TextBlock Text="Special Attack" Grid.Column="1" TextAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Margin="10,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.SpecialAttack, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="6"/>
-            <TextBlock Text="Special Defense" Grid.Column="3" TextAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Margin="40,0,0,0" />
-            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.SpecialDefense, Mode=OneWay}" FontWeight="Black" Grid.Column="4" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="6"/>
+            <TextBlock Text="Special Defense" Grid.Column="4" TextAlignment="Left" Grid.Row="6" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.SpecialDefense, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="6"/>
+            
             <TextBlock Text="Height (centimeter)" Grid.Column="1" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="10,0,0,0" />
             <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Height, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="7"/>
-            <TextBlock Text="Weight (gramme)" Grid.Column="3" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="40,0,0,0" />
-            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Weight, Mode=OneWay}" FontWeight="Black" Grid.Column="4" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="7"/>
+            <TextBlock Text="Weight (gramme)" Grid.Column="4" TextAlignment="Left" Grid.Row="7" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=CurrentCharacter.Specifications.Weight, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="7"/>
 
             <TextBlock Text="Classes" TextAlignment="Left" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="9" Margin="5,0,0,0"/>
+            
             <TextBlock Text="Character type(s)" Grid.Column="1" TextAlignment="Left" Grid.Row="10" VerticalAlignment="Center" Margin="10,0,0,0" />
             <controls:ListClasses ListClassesName="{Binding Path=CurrentCharacter.Classes, Mode=TwoWay}" HorizontalAlignment="Left" Grid.ColumnSpan="3" Grid.Column="2" Grid.Row="10" />
+            
             <TextBlock Text="Weakness" Grid.Column="1" TextAlignment="Left" Grid.Row="11" VerticalAlignment="Center" Margin="10,0,0,0" />
-            <controls:ListWeaknesses ListWeaknessesObject="{Binding Path=CurrentCharacter.Weaknesses, Mode=TwoWay}" HorizontalAlignment="Left" Grid.ColumnSpan="4" Grid.Column="2" Grid.Row="11" />
+            <controls:ListWeaknesses ListWeaknessesObject="{Binding Path=CurrentCharacter.Weaknesses, Mode=TwoWay}" HorizontalAlignment="Left" Grid.ColumnSpan="6" Grid.Column="2" Grid.Row="11" />
 
-            <TextBlock Text="Vote" TextAlignment="Left" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="4" Grid.Row="13" Margin="5,0,0,0"/>
-            <TextBlock Text="Rank" Grid.Column="1" TextAlignment="Left" Grid.Row="14" VerticalAlignment="Center" Margin="10,0,0,0" />
-            <TextBlock Text="{Binding Path=CurrentCharacter.Rank, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="14"/>
-            <TextBlock Text="Vote counting" Grid.Column="1" TextAlignment="Left" Grid.Row="15" VerticalAlignment="Center" Margin="10,0,0,0" />
-            <TextBlock Text="{Binding Path=CurrentCharacter.Votes, Mode=OneWay}" Grid.Column="2" Grid.Row="15" FontWeight="Black" TextAlignment="Right" VerticalAlignment="Center"/>
-            <Button Content="Vote" Width="50px" Margin="10,0,0,0" Height="20px" Grid.Column="3" Grid.Row="15" Command="{Binding VoteClickCommand}" x:Name="VoteButton" HorizontalAlignment="Left" />
+            <TextBlock Text="Average Specifications" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="13" Margin="5,0,0,0"/>
+
+            <TextBlock Text="Life points" Grid.Column="1" TextAlignment="Left" Grid.Row="14" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.LifePoints, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="14"/>
+            <TextBlock Text="Speed" Grid.Column="4" TextAlignment="Left" Grid.Row="14" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.Speed, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="14"/>
+
+            <TextBlock Text="Attack" Grid.Column="1" TextAlignment="Left" Grid.Row="15" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.Attack, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="15"/>
+            <TextBlock Text="Defense" Grid.Column="4" TextAlignment="Left" Grid.Row="15" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.Defense, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="15"/>
+
+            <TextBlock Text="Special Attack" Grid.Column="1" TextAlignment="Left" Grid.Row="16" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.SpecialAttack, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="16"/>
+            <TextBlock Text="Special Defense" Grid.Column="4" TextAlignment="Left" Grid.Row="16" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.SpecialDefense, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="16"/>
+
+            <TextBlock Text="Height (centimeter)" Grid.Column="1" TextAlignment="Left" Grid.Row="17" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.Height, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="17"/>
+            <TextBlock Text="Weight (gramme)" Grid.Column="4" TextAlignment="Left" Grid.Row="17" VerticalAlignment="Center" Margin="20,0,0,0" />
+            <TextBlock Text="{Binding Path=AverageSpecifications.Weight, Mode=OneWay}" FontWeight="Black" Grid.Column="5" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="17"/>
+
+            <TextBlock Text="Vote" TextAlignment="Left" FontWeight="Black" FontSize="16"  Grid.Column="1" Grid.ColumnSpan="6" Grid.Row="19" Margin="5,0,0,0"/>
+            
+            <TextBlock Text="Rank" Grid.Column="1" TextAlignment="Left" Grid.Row="20" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <TextBlock Text="{Binding Path=CurrentCharacter.Rank, Mode=OneWay}" FontWeight="Black" Grid.Column="2" TextAlignment="Right" VerticalAlignment="Center" Grid.Row="20" Margin="0,0,35,0" />
+            
+            <TextBlock Text="Vote counting" Grid.Column="1" TextAlignment="Left" Grid.Row="21" VerticalAlignment="Center" Margin="10,0,0,0" />
+            <StackPanel Orientation="Horizontal" Grid.Column="2" Grid.Row="21" HorizontalAlignment="Right">
+                <TextBlock Text="{Binding Path=CurrentCharacter.Votes, Mode=OneWay}" FontWeight="Black" TextAlignment="Right" VerticalAlignment="Center"/>
+                <Button Content="Vote" Width="30px" Margin="5,0,0,0" Height="20px" Command="{Binding VoteClickCommand}" x:Name="VoteButton" HorizontalAlignment="Left" />
+            </StackPanel>
         </Grid>
     </DockPanel>
 </UserControl>

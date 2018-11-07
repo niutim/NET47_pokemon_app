@@ -7,6 +7,7 @@ namespace PokemonDataStore.Adapters
 {
     public class CharacterAdapter
     {
+
         public static List<Character> GetCharacters()
         {
             List<Character> charactersList = new List<Character>();

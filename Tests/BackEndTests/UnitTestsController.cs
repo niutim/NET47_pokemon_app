@@ -114,6 +114,34 @@ namespace BackEndTests.UnitTestsController
         }
 
         [TestMethod]
+        public void GetAverageSpecificationsOneClassTest()
+        {
+            var controller = new CharactersController();
+            var result = controller.GetAverageSpecifications(new string[] { "Earth" }) as System.Web.Http.Results.OkNegotiatedContentResult<Specifications>;
+
+            Assert.IsNotNull(result, "Controller response is null.");
+
+            Specifications topTenCharactersSent = result.Content as Specifications;
+
+            Assert.IsTrue(topTenCharactersSent.Speed>0);
+
+        }
+
+        [TestMethod]
+        public void GetAverageSpecificationsTwoClassesTest()
+        {
+            var controller = new CharactersController();
+            var result = controller.GetAverageSpecifications(new string[] { "Rock", "Fly" }) as System.Web.Http.Results.OkNegotiatedContentResult<Specifications>;
+
+            Assert.IsNotNull(result, "Controller response is null.");
+
+            Specifications topTenCharactersSent = result.Content as Specifications;
+
+            Assert.IsTrue(topTenCharactersSent.Speed > 0);
+
+        }
+
+        [TestMethod]
 		public void GetVoteForFirstFoundCharacterTest()
 		{
 			var controller = new CharactersController();

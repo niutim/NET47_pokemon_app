@@ -12,11 +12,19 @@ namespace PokemonFrontEnd.ViewModel
     {
         private ICommand _voteClickCommand;
         private Character _character;
+        private Specifications _specifications;
 
         public Character CurrentCharacter {
 			get { return _character; }
-			set { _character = value; OnPropertyChanged("CurrentCharacter"); }
+			set { _character = value; GetAverageSpecificationsAsync(); OnPropertyChanged("CurrentCharacter"); }
 		}
+
+        public Specifications AverageSpecifications
+        {
+            get { return _specifications; }
+            set { _specifications = value; OnPropertyChanged("AverageSpecifications"); }
+        }
+
         public event PropertyChangedEventHandler PropertyChanged;
 
         public ICommand VoteClickCommand
@@ -37,15 +45,21 @@ namespace PokemonFrontEnd.ViewModel
             {
                 if (character != null)
                 {
+                    CurrentCharacter = character;
                     MainWindow main = Application.Current.MainWindow as PokemonFrontEnd.MainWindow;
-                    if (main != null)
-                    {
-                        main.TopCharactersView.Refresh();
-                        main.DisplayCharacterInfo(character);
-                    }
+                    if (main != null) main.TopCharactersView.Refresh();
                     Mouse.OverrideCursor = Cursors.Arrow;
                 }
             }
+        }
+
+        private async void GetAverageSpecificationsAsync()
+        {
+            Mouse.OverrideCursor = Cursors.Wait;
+            Task<Specifications> task = CharacterService.GetAverageSpecificationsAsync(_character.Classes);
+            Specifications specifications = await task;
+            if (task.IsCompleted)
+                AverageSpecifications = (specifications == null) ? new Specifications() : specifications;
         }
 
         protected void OnPropertyChanged(string name)
