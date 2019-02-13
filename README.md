@@ -14,7 +14,7 @@ Known issues :
 
 Description :
 
-This test project includes 2 parts in C#, using sln files you'll have to use Visual Studio 2017 (I used community edition) and .NET Framework 4.7.1 / 4.7.2 Developer Pack
+This project includes 2 parts in C#, using sln files you'll have to use Visual Studio 2017 (I used community edition) and .NET Framework 4.7.1 / 4.7.2 Developer Pack
 
 Instructions :
 
